@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>KONG VS GODZILLA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    #background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100vh;
+    }
+
+    #background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    button,
+    a {
+      color: white;
+      font: 400 1rem "Mukta", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: black;
+      width: 100%;
+      height: 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      column-gap: 64px;
+
+      width: 100%;
+      max-width: 1440px;
+      padding-top: 24px;
+    }
+
+    header img {
+      width: 70px;
+      height: auto;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      column-gap: 48px;
+
+      list-style: none;
+
+    }
+
+    .navigation__link {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      position: relative;
+
+      transition: 0.5s;
+    }
+
+    .navigation__link:hover {
+      color: red;
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      margin-top: 1px;
+      display: flex;
+      margin-top: 200px;
+      flex-direction: column;
+      width: 100%;
+      max-width: 1440px;
+      margin-bottom: 80px;
+    }
+
+    section {
+      margin-top: 120px;
+      margin-left: 1px;
+      flex: 1;
+      margin-left: 1px;
+      width: 100%;
+    }
+
+    .main__info {
+      display: flex;
+      width: 100%;
+      max-width: 570px;
+      gap: 90px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      z-index: 9;
+    }
+
+    .main__info img {
+      margin-bottom: 0px;
+    }
+
+    #conteudo p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      background-color: black;
+      font-weight: bolder;
+    }
+
+    #conteudo2 p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      background-color: black;
+      font-weight: bolder;
+    }
+
+    #conteudo3 p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      background-color: black;
+      font-weight: bolder;
+    }
+
+    #conteudo4 p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      font-weight: bolder;
+      background-color: black;
+    }
+
+    #conteudo5 p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      font-weight: bolder;
+      background-color: black;
+    }
+
+    #conteudo6 p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      font-weight: bolder;
+      background-color: black;
+    }
+
+    #conteudo7 p {
+      margin-top: 100px;
+      font-size: 18px;
+      margin: 20px 0 28px;
+      color: white;
+      font-weight: bolder;
+      background-color: black;
+    }
+
+    .informacoes div {
+      margin-top: 40px;
+      width: 800px;
+      position: relative;
+      margin-top: 0px;
+      margin-left: 300px;
+      display: flex;
+      column-gap: 52px;
+    }
+
+    .informacoes div a,
+    .informacoes div button {
+
+      margin-top: 90px;
+      margin-left: 1px;
+      width: 100%;
+      padding: 0px;
+      border-radius: 13px;
+      padding-top: 10px;
+
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.3;
+      transform: skew(-8deg);
+      background-color: red;
+    }
+
+
+    .informacoes div a {
+      margin-top: 90px;
+      height: 50px;
+      border: 4px solid rgb(247, 142, 5);
+      background-color: white;
+      width: 600px;
+      margin-top: 0px;
+      color: black;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+
+    .informacoes div a:hover {
+      background: red;
+      border: solid black;
+      color: white;
+    }
+
+    .trilogia {
+      position: absolute;
+      z-index: 1;
+      margin-top: 294px;
+
+    }
+
+    .trilogia button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      width: 216px;
+      margin-left: 0px;
+      border: 2px solid black;
+      border: 2px solid rgb(83, 81, 81);
+    }
+
+    .trilogia button:hover {
+      background-color: #333232;
+      border: 2PX solid white;
+      color: rgb(247, 142, 5);
+    }
+
+
+    #conteudo {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://rollingstone.uol.com.br/media/_versions/2024/04/godzilla-e-kong-o-novo-imperio-ganha-data-de-estreia-nos-streamings-foto-divulgacaowarner-bros-pictures_widelg.jpg);
+      background-position-x: center;
+    }
+
+    #conteudo2 {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://sm.ign.com/ign_br/screenshot/default/maxresdefault_5e8a.jpg);
+      background-position-x: center;
+    }
+
+    #conteudo3 {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://sm.ign.com/ign_br/screenshot/default/godzilla-1_v9du.jpg);
+      background-position-x: center;
+    }
+
+    #conteudo4 {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://www.planocritico.com/wp-content/uploads/2014/05/GODZILLA-2014-PLANO-CR%C3%8DTICO.jpg);
+      background-position-x: center;
+    }
+
+    #conteudo5 {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://i.blogs.es/f7a706/godzilla-vs-kong/1366_2000.jpg);
+      background-position-x: center;
+    }
+
+    #conteudo6 {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://i.blogs.es/f7a706/godzilla-vs-kong/1366_2000.jpg);
+      background-position-x: center;
+    }
+
+    #conteudo7 {
+      position: absolute;
+      margin: auto;
+      width: 600px;
+      height: 700px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      margin-top: 0px;
+      padding: 10px;
+      display: none;
+      overflow: auto;
+      backdrop-filter: blur(15px);
+      z-index: 3;
+      margin-left: 430px;
+      background-image: url(https://i.blogs.es/f7a706/godzilla-vs-kong/1366_2000.jpg);
+      background-position-x: center;
+    }
+
+    .videos {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .videos h3 {
+      margin: 50px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .videos2 {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .videos2 h3 {
+      margin: 50px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .videos3 {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 43px;
+    }
+
+    .videos3 h3 {
+      margin: 50px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .videos4 {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+
+    .videos4 h3 {
+      margin: 20px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .videos5 {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 43px;
+    }
+
+    .videos5 h3 {
+      margin: 50px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .videos6 {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 43px;
+    }
+
+    .videos6 h3 {
+      margin: 50px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .videos7 {
+      margin-top: 30px;
+      margin-left: 10px;
+      text-align: center;
+      margin-bottom: 43px;
+    }
+
+    .videos7 h3 {
+      margin: 50px;
+      letter-spacing: 2px;
+      color: yellow;
+      background-color: black;
+      margin-top: 0px;
+    }
+
+    .conteudos::-webkit-scrollbar {
+      display: none;
+    }
+
+    .conteudos2::-webkit-scrollbar {
+      display: none;
+    }
+
+    .conteudos3::-webkit-scrollbar {
+      display: none;
+    }
+
+    .conteudos4::-webkit-scrollbar {
+      display: none;
+    }
+
+    .conteudos5::-webkit-scrollbar {
+      display: none;
+    }
+
+    .conteudos6::-webkit-scrollbar {
+      display: none;
+    }
+
+    .conteudos7::-webkit-scrollbar {
+      display: none;
+    }
+
+    .info2 {
+      position: absolute;
+      margin-left: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main__info2 {
+      position: relative;
+      background-color: black;
+      margin: 0;
+    }
+
+    .trilogia2 {
+      margin-top: 294px;
+      position: absolute;
+      z-index: 1;
+      margin-left: 1255px;
+    }
+
+    .trilogia2 button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      width: 215px;
+      border: 2px solid rgb(83, 81, 81);
+    }
+
+    .trilogia2 button:hover {
+      background-color: #333232;
+      border: 2PX solid white;
+      color: rgb(247, 142, 5);
+    }
+
+    .trilogia3 {
+      margin-top: 294px;
+      position: absolute;
+      z-index: 1;
+      margin-left: 306px;
+    }
+
+    .trilogia3 button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      width: 223px;
+      margin-left: 0px;
+      border: 2px solid rgb(83, 81, 81);
+    }
+
+    .trilogia3 button:hover {
+      background-color: #333232;
+      border: 2PX solid white;
+      color: rgb(247, 142, 5);
+    }
+
+    .trilogia4 {
+      margin-top: 294px;
+      position: absolute;
+      z-index: 1;
+      margin-left: 619px;
+    }
+
+    .trilogia4 button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      width: 240px;
+      border: 2px solid rgb(83, 81, 81);
+    }
+
+    .trilogia4 button:hover {
+      background-color: #333232;
+      border: 2PX solid white;
+      color: rgb(247, 142, 5);
+    }
+
+    .trilogia5 {
+      margin-top: 294px;
+      position: absolute;
+      z-index: 1;
+      margin-left: 949px;
+    }
+
+    .trilogia5 button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      width: 216px;
+      margin-left: 0px;
+      border: 2px solid rgb(83, 81, 81);
+    }
+
+    .trilogia5 button:hover {
+      background-color: #333232;
+      border: 2PX solid white;
+      color: rgb(247, 142, 5);
+    }
+
+    .close {
+      position: relative;
+      color: black;
+      background-color: white;
+      margin-top: 0px;
+      border-radius: 50%;
+      width: 25px;
+      margin-left: 550px;
+      border: none;
+      font-weight: bolder;
+    }
+
+    .close:hover {
+      position: relative;
+      background-color: red;
+      margin-top: 0px;
+      border-radius: 50%;
+      width: 25px;
+      margin-left: 550px;
+      border: none;
+    }
+
+    .comment-section {
+      width: 100%;
+      margin: 20px auto;
+      margin-top: 280px;
+      background-color: black;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-section h2 {
+      font-size: 38px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .comment-input {
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    #comment-text {
+      width: 100%;
+      height: 60px;
+      padding: 10px;
+      border: 1px solid red;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    #post-comment {
+      align-self: flex-end;
+      padding: 10px 20px;
+      border: none;
+      background-color: #007BFF;
+      color: rgb(49, 49, 49);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #post-comment:hover {
+      background-color: #0056b3;
+    }
+
+    #comments-container {
+      margin-top: 20px;
+    }
+
+    .comment {
+      display: flex;
+      margin-bottom: 40px;
+    }
+
+    .comment-avatar {
+      width: 40px;
+      height: 40px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .comment-content {
+      flex: 1;
+    }
+
+    .comment-author {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .comment-text {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .countainer1 {
+      display: flex;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .img-coment1 {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .countainer2 {
+      flex: 1;
+    }
+
+    .p1 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .p2 {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .ava {
+      width: 100%;
+      height: 800px;
+      margin: 20px auto;
+      margin-top: 280px;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .avaliacao {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 980px;
+      margin: 0 auto;
+      grid-gap: 60px;
+
+    }
+
+    .ava h2 {
+      margin-bottom: 100px;
+      font-size: 38px;
+      text-align: center;
+      font-weight: bold;
+      color: red;
+    }
+
+    .star {
+      width: 20px;
+    }
+
+    .user {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .para1 {
+      color: black;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .card {
+      background-color: white;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 35px 40px;
+
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.171);
+    }
+
+    h3 {
+      color: black;
+      margin-bottom: 5px;
+    }
+
+    .histo {
+      margin-top: 450px;
+      background-color: black;
+      padding-bottom: 30px;
+    }
+
+    .histo img {
+      width: 100%;
+      height: 500px;
+    }
+
+    .histo h1 {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      text-align: center;
+      color: rebeccapurple;
+    }
+
+    .histo h2 {
+      padding: 40px 15px;
+      color: rebeccapurple;
+    }
+
+    .histo h4 {
+      padding: 50px 15px;
+      color: rebeccapurple;
+    }
+
+    .histo p {
+      padding-left: 20px;
+      margin-bottom: 50px;
+    }
+
+    .footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer p {
+      margin: 0;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="background">
+    <img
+      src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2024/03/kong-monta-encima-godzilla-nuevo-clip-loco-godzilla-x-kong-new-empire-bestial-pelicula-kaiju-3282416.jpg?tf=3840x"
+      alt="">
+  </div>
+
+  <div id="app" class="apps">
+    <header>
+      <ul class="navigation">
+        <li>
+          <a href="#" class="navigation__link">Home</a>
+        </li>
+        <li>
+          <a href="#history" class="navigation__link">História</a>
+        </li>
+        <li>
+          <a href="#comentarios" class="navigation__link">Comunidade</a>
+        </li>
+        <li>
+          <a href="#avali" class="navigation__link">Avaliações</a>
+        </li>
+      </ul>
+    </header>
+
+
+    <main>
+
+
+      <div class="main__info">
+        <img data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"
+          src="https://www.cinesystem.com.br/_next/image?url=https%3A%2F%2Fcinesystem-media.nyc3.digitaloceanspaces.com%2Ffilmes%2Fimages%2Fposter%2Fgodzilla-e-kong-o-novo-imperio.jpg&w=750&q=100"
+          width="250px" height="320px" />
+        <div class="trilogia">
+          <button onclick="mostrar('conteudo')" class="exibir">SOBRE</button>
+        </div>
+
+        <img data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"
+          src="https://play-lh.googleusercontent.com/22EEHQXmJ59zNDb4NV5ofkFfpswyIVdQazwh2P9XsftVBVRSijLj7ij-cwSPCxsjw194bWW9vbseXjbTAP8"
+          width="250px" height="320px">
+
+        <div class="trilogia5">
+          <button onclick="mostrar('conteudo2')" class="exibir">SOBRE</button>
+        </div>
+
+        <img data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"
+          src="https://m.media-amazon.com/images/S/pv-target-images/82f2c03552a89ff038844a5f8a02b10b21c661ca61312f111636a5df527bce49.jpg"
+          width="250px" height="320px">
+
+        <div class="trilogia4">
+          <button onclick="mostrar('conteudo3')" class="exibir">SOBRE</button>
+        </div>
+
+
+        <img data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"
+          src="https://br.web.img3.acsta.net/pictures/17/02/24/14/55/144568.jpg" width="250px" height="320px">
+
+        <div class="trilogia2">
+          <button onclick="mostrar('conteudo4')" class="exibir">SOBRE</button>
+        </div>
+
+        <img data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"
+          src="https://upload.wikimedia.org/wikipedia/pt/thumb/f/f9/Godzilla2014Poster.jpg/250px-Godzilla2014Poster.jpg"
+          width="250px" height="320px">
+
+        <div class="trilogia3">
+          <button onclick="mostrar('conteudo5')" class="exibir">SOBRE</button>
+        </div>
+
+        <div class="conteudos" id="conteudo">
+          <button class="close" onclick="fecharr('conteudo')" class="exibir">X</button>
+
+          <div class="videos" id="videoss">
+            <h3>GODZILLA E KONG: NOVO IMPÉRIO - 2024</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/va-7FEpUHVQ?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p data-aos="fade-right" data-aos-delay="600" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+              Godzilla e o todo-poderoso Kong enfrentam uma ameaça colossal escondida nas profundezas do planeta,
+              desafiando a sua própria existência e a sobrevivência da raça humana.
+            </p>
+          </div>
+        </div>
+
+        <div class="conteudos2" id="conteudo2">
+
+          <button class="close" onclick="fecharr('conteudo2')" class="exibir">X</button>
+
+          <div class="videos2" id="videoss2">
+            <h3>KONG: A ILHA DA CAVEIRA - 2017</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VU-m5T6wBzY?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p data-aos="fade-right" data-aos-delay="600" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+              Um ex-militar viaja com um grupo de desbravadores até a mítica Ilha da Caveira, onde seu irmão
+              desapareceu. A equipe de exploradores se aventura nas profundezas da ilha desconhecida, sem saber que está
+              entrando nos domínios do mítico Kong.
+            </p>
+          </div>
+        </div>
+
+        <div class="conteudos3" id="conteudo3">
+
+          <button class="close" onclick="fecharr('conteudo3')" class="exibir">X</button>
+
+          <div class="videos3" id="videoss3">
+            <h3>GODZILLA II: REI DOS MONSTROS - 2019</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1BWV-3YEp6k?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p data-aos="fade-right" data-aos-delay="600" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+              Membros da agência Monarch enfrentam monstros gigantescos, incluindo o poderoso Godzilla, que entra em
+              choque com Mothra, Rodan e seu maior inimigo, King Ghidorah, o monstro de três cabeças. Essas antigas
+              superespécies disputam a supremacia, deixando a própria existência da humanidade em risco.
+            </p>
+          </div>
+        </div>
+
+        <div class="conteudos4" id="conteudo4">
+
+          <button class="close" onclick="fecharr('conteudo4')" class="exibir">X</button>
+
+          <div class="videos4" id="videoss4">
+            <h3>GODZILLA - 2014</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/f73LfRsKtXY?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p data-aos="fade-right" data-aos-delay="600" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+              Um especialista em bombas da marinha norte-americana acaba de se reunir com a família em São Francisco,
+              Estados Unidos, quando é forçado a ir para o Japão para ajudar seu pai. Logo, os dois se deparam com um
+              grande acontecimento: Godzilla, o rei dos monstros, surge do mar para combater criaturas inimigas. Em uma
+              luta pela supremacia, os monstros ameaçam a sobrevivência da humanidade.
+            </p>
+          </div>
+        </div>
+
+        <div class="conteudos5" id="conteudo5">
+
+          <button class="close" onclick="fecharr('conteudo5')" class="exibir">X</button>
+
+          <div class="videos5" id="videoss5">
+            <h3>GODZILLA VS KONG - 2021</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kIET9yMABD8?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p data-aos="fade-right" data-aos-delay="600" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+              Kong e seus protetores embarcam em uma jornada perigosa para encontrar seu verdadeiro lar. Jia, uma garota
+              órfã que tem um vínculo único e poderoso com a poderosa besta, acompanha a aventura. No entanto, eles logo
+              se encontram no caminho de Godzilla, completamente enfurecido, deixando um rastro de destruição em todo o
+              mundo.
+            </p>
+          </div>
+        </div>
+
+        <div class="conteudos6" id="conteudo6">
+
+          <button class="close" onclick="fecharr('conteudo6')" class="exibir">X</button>
+
+          <div class="videos6" id="videoss6">
+            <h3>KONG</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NYnvKaWSzmI?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+          </div>
+        </div>
+
+        <div class="conteudos7" id="conteudo7">
+
+          <button class="close" onclick="fecharr('conteudo7')" class="exibir">X</button>
+
+          <div class="videos7" id="videoss7">
+            <h3>GODZILLA</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0NvIwD52Nzw?si=mriQSEaQ6X5QAAEt"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+          </div>
+        </div>
+      </div>
+
+
+      <section>
+        <div class="informacoes">
+
+          <div>
+            <a onclick="mostrar('conteudo6');">Team Kong</a>
+
+            <a onclick="mostrar('conteudo7');">Team Godzilla</a>
+          </div>
+        </div>
+
+        <div class="histo" id="history">
+          <h1>HISTÓRIA</h1>
+          <img
+            src="https://d2d7ho1ae66ldi.cloudfront.net/ArquivoNoticias/14e7b1f8-917a-11eb-aa6e-9587410378a2/godzilla-kong-tudo.jpg"
+            alt="">
+
+          <h2>Godzilla vs. Kong: Tudo sobre o filme dos titãs do Monsterverse</h2>
+
+          <div class="resumo">
+            <p>O momento que os fãs de kaijus e monstros gigantes esperavam chegou. Godzilla vs. Kong vai finalmente ser
+              lançado em abril deste ano no Brasil, marcando o encontro e a batalha de duas das maiores (literalmente)
+              criaturas da história do cinema. Ele é um dos maiores blockbusters de 2021 e serve como o Vingadores para
+              o chamado Monsterverse da Legendary Studios.
+            </p>
+
+            <h4>O que é o Monsterverse?</h4>
+            <p>Em 2014, a Warner Bros. lançou um reboot de Godzilla dirigido por Gareth Edwards e estrelado por
+              Aaron-Taylor Johnson, Elizabeth Olsen, Ken Watanabe e Bryan Cranston. O longa modernizou o mito de Gojira
+              enquanto homenageou o clássico japonês de 1954. A história mostra o ressurgimento do Rei dos Monstros por
+              conta dos experimentos dos humanos com tecnologia nuclear. Ali, a Legendary Studios apresentou uma empresa
+              chamado Monarch, que liga todo o Monsterverse. Ela existe desde os anos 50, quando tentou matar Godzilla
+              com bombas nucleares no pacífico, e pesquisa essas criaturas, conhecidas como Titãs.</p>
+
+            <p>O Monsterverse inclui Godzilla (2014), Kong: A Ilha da Caveira e Godzilla II: O Rei dos Monstros. Agora,
+              Godzilla vs. Kong é a grande culminação do que começou há sete anos.</p>
+
+            <h4>Qual é a história do Monsterverse até aqui?</h4>
+            <p>Nos anos 50, após a Segunda Guerra Mundial e as bombas de Hiroshima e Nagasaki, Godzilla começou a
+              aparecer nos mares do pacífico. A Monarch começou a pesquisar a criatura e auxiliar os EUA na tentativa de
+              matá-lo, falhando várias vezes até o desaparecimento do monstro.</p>
+
+          </div>
+        </div>
+
+        <div class="comment-section" id="comentarios">
+          <h2>Comentários</h2>
+
+          <div class="countainer1">
+            <img class="img-coment1"
+              src="https://pm1.aminoapps.com/6900/05c9e2c9a620b4e527dfc7503489c5550a94d5afr1-280-270v2_uhq.jpg" alt="">
+            <div class="countainer2">
+              <p class="p1">Marcos Uchiha</p>
+              <p class="p2">To gostando bastante das franquias</p>
+            </div>
+          </div>
+
+          <div class="countainer1">
+            <img class="img-coment1" src="https://pbs.twimg.com/media/EVA7xYxXkAAkQ7T.jpg" alt="">
+            <div class="countainer2">
+              <p class="p1">Pedro H.</p>
+              <p class="p2">Os filmes são excelentes</p>
+            </div>
+          </div>
+
+          <div class="countainer1">
+            <img class="img-coment1" src="https://i.pinimg.com/564x/2a/30/3f/2a303f55d2dae25538c1106524cbb46b.jpg"
+              alt="">
+            <div class="countainer2">
+              <p class="p1">Batman</p>
+              <p class="p2">Ansioso para o próximo filme</p>
+            </div>
+          </div>
+
+          <div class="countainer1">
+            <img class="img-coment1" src="https://www.meme-arsenal.com/memes/e94748f6545b9e8765d8db93e9fa8609.jpg"
+              alt="">
+            <div class="countainer2">
+              <p class="p1">Buzz Lightyear</p>
+              <p class="p2">Prefiro os filmes antigos</p>
+            </div>
+          </div>
+
+
+
+          <div id="comments-container"></div>
+
+          <div class="comment-input">
+            <textarea id="comment-text" placeholder="Adicione um comentário..." style="font-size: 16px;"></textarea>
+            <button id="post-comment">Comentar</button>
+          </div>
+        </div>
+
+
+        <div class="ava" id="avali">
+          <h2>Avaliações</h2>
+
+          <div class="avaliacao">
+            <div class="card">
+              <img class="user"
+                src="https://img.freepik.com/fotos-gratis/mulher-bonita-confiante-com-o-punho-no-queixo-isolado-na-parede-verde-oliva_141793-66547.jpg"
+                alt="">
+
+              <h3>Sarah Curly</h3>
+              <div class="stars">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+              </div>
+
+              <p class="para1">é uma obra-prima que combina ação, ficção científica e um enredo psicológico intrincado
+                de forma magistral. O filme nos convida a uma jornada pelo mundo dos monstros.
+              </p>
+
+            </div>
+
+            <div class="card">
+              <img class="user"
+                src="https://f.i.uol.com.br/fotografia/2021/07/24/162713506160fc1c55ddf33_1627135061_3x2_md.jpg" alt="">
+
+              <h3>Jake Gringer</h3>
+              <div class="stars">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+
+              </div>
+
+              <p class="para1">é um filme ambicioso que explora o intrigante mundo do monstroverso, mas que pode deixar
+                alguns espectadores com sentimentos mistos.
+              </p>
+
+            </div>
+
+            <div class="card">
+              <img class="user"
+                src="https://static.vecteezy.com/ti/fotos-gratis/t2/44040604-alto-moda-do-uma-homem-dentro-moderno-desenhador-vestuario-foto.jpg"
+                alt="">
+
+              <h3>Erwin Castle</h3>
+              <div class="stars">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148841.png" alt="" class="star">
+
+              </div>
+
+              <p class="para1">O filme é frequentemente elogiado por sua ambição e complexidade, mas para alguns
+                espectadores, o filme não consegue atingir o impacto desejado, resultando em uma experiência frustrante
+                e decepcionante.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer">
+          <p>&copy;
+            <?php echo date('Y'); ?> Empresa fictícia. Todos os direitos reservados.
+          </p>
+          <p><a href="#">Visite nosso site</a></p>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('post-comment').addEventListener('click', function () {
+      const commentText = document.getElementById('comment-text').value;
+
+      if (commentText.trim()) {
+        addComment('Usuário Anônimo', commentText);
+        document.getElementById('comment-text').value = ''; // Limpar o campo de texto
+      }
+    });
+
+    function addComment(author, text) {
+      const commentsContainer = document.getElementById('comments-container');
+
+      const comment = document.createElement('div');
+      comment.classList.add('comment');
+
+      const avatar = document.createElement('div');
+      avatar.classList.add('comment-avatar');
+
+      const content = document.createElement('div');
+      content.classList.add('comment-content');
+
+      const authorElement = document.createElement('div');
+      authorElement.classList.add('comment-author');
+      authorElement.textContent = author;
+
+      const textElement = document.createElement('div');
+      textElement.classList.add('comment-text');
+      textElement.textContent = text;
+
+      content.appendChild(authorElement);
+      content.appendChild(textElement);
+      comment.appendChild(avatar);
+      comment.appendChild(content);
+      commentsContainer.appendChild(comment);
+    }
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    function mostrar(el) {
+      document.getElementById(el).style.display = 'block'
+    }
+  </script>
+
+  <script>
+    function fecharr(ele1) {
+      document.getElementById(ele1).style.display = 'none'
+    }
+  </script>
+
+</body>
+
+</html>
